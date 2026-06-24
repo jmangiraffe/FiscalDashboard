@@ -1,0 +1,19 @@
+# Core API & Server
+fastapi
+uvicorn
+python-dotenv
+
+# Database
+supabase
+
+# Background Tasks
+apscheduler
+
+# Machine Learning
+scikit-learn
+pandas
+numpy
+
+# AI Integration (Uncomment the one your team chooses)
+# google-generativeai 
+# langchain
