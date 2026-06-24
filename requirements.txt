@@ -13,7 +13,7 @@ apscheduler
 scikit-learn
 pandas
 numpy
+statsmodels 
 
-# AI Integration (Uncomment the one your team chooses)
-# google-generativeai 
-# langchain
+# AI Integration
+google-genai
