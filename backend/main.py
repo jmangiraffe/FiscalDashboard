@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routers import metrics [cite: 92, 93, 94]
+from backend.routers import metrics
 
-app = FastAPI(title="US Fiscal Dashboard API") [cite: 95]
+app = FastAPI(title="US Fiscal Dashboard API")
 
 # Allow your frontend to communicate with this backend securely
 app.add_middleware(
@@ -11,11 +11,11 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-) [cite: 96, 97, 98, 99, 100, 101, 102, 103]
+)
 
 # Include the modular routers
-app.include_router(metrics.router) [cite: 104, 105]
+app.include_router(metrics.router)
 
 @app.get("/")
 def read_root():
-    return {"message": "US Fiscal Intelligence Backend Active."} [cite: 106, 107, 108]
+    return {"message": "US Fiscal Intelligence Backend Active."}
