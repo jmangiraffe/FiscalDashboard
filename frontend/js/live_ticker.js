@@ -1,5 +1,5 @@
 // Point this to your Render URL later (e.g., https://your-backend.onrender.com)
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "https://fiscaldashboard-u9do.onrender.com";
 
 async function initLiveTicker() {
     const clockElement = document.getElementById('debt-clock');
@@ -20,22 +20,22 @@ async function initLiveTicker() {
         const incrementPerTick = velocityPerSecond / ticksPerSecond;
         
         setInterval(() => {
-            currentDebt += incrementPerTick; [cite: 150]
+            currentDebt += incrementPerTick;
             
             // Format to USD currency
             clockElement.textContent = new Intl.NumberFormat('en-US', {
                 style: 'currency',
                 currency: 'USD',
                 maximumFractionDigits: 0
-            }).format(currentDebt); [cite: 151, 152, 153, 154, 155, 156]
+            }).format(currentDebt);
             
-        }, 1000 / ticksPerSecond); [cite: 157]
+        }, 1000 / ticksPerSecond);
         
     } catch (error) {
-        console.error("Failed to load metrics:", error); [cite: 158, 159]
-        clockElement.textContent = "Data Sync Error"; [cite: 160]
+        console.error("Failed to load metrics:", error);
+        clockElement.textContent = "Data Sync Error";
     }
 }
 
 // Start the engine when the script loads
-initLiveTicker(); [cite: 164]
+initLiveTicker();
