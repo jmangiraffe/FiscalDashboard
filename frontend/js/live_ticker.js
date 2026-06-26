@@ -16,7 +16,7 @@ async function initLiveTicker() {
         velocityElement.textContent = velocityPerSecond.toLocaleString();
         
         // 2. Set up the Live Clock Math (Updates every 100 milliseconds)
-        const ticksPerSecond = 10;
+        const ticksPerSecond = 30; // Creates a high-frequency fluid update cycle
         const incrementPerTick = velocityPerSecond / ticksPerSecond;
         
         setInterval(() => {
