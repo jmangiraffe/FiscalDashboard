@@ -1,0 +1,7 @@
+# Core API & Server
+fastapi
+uvicorn
+httpx
+
+# Background Tasks
+apscheduler
