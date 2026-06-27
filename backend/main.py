@@ -36,8 +36,6 @@ app.add_middleware(
 app.include_router(metrics.router)
 
 # Serve the frontend
-app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
-
 @app.get("/")
-def serve_frontend():
-    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
+def api_root():
+    return {"message": "US Fiscal Dashboard API is active and routing."}
