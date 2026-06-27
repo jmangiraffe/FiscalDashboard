@@ -1,4 +1,4 @@
-const API_BASE_URL = "";
+const API_BASE_URL = "https://fiscaldashboard.onrender.com";
 
 async function initLiveTicker() {
     const clockElement = document.getElementById('debt-clock');
