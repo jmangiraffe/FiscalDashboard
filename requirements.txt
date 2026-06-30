@@ -3,6 +3,5 @@ fastapi
 uvicorn
 httpx
 aiofiles
-
 # Background Tasks
 apscheduler
