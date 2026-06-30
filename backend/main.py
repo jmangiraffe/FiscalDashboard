@@ -35,6 +35,10 @@ app.add_middleware(
 
 app.include_router(metrics.router)
 
+# Tell FastAPI to serve your CSS and JS files when requested
+app.mount("/js", StaticFiles(directory=os.path.join(FRONTEND_DIR, "js")), name="js")
+app.mount("/css", StaticFiles(directory=os.path.join(FRONTEND_DIR, "css")), name="css")
+
 # Serve the frontend
 @app.get("/")
 def serve_frontend():
