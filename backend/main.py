@@ -7,6 +7,7 @@ from fastapi.responses import FileResponse
 from backend.routers import metrics
 from backend.workers.data_sync import fetch_and_cache_fiscal_data
 from apscheduler.schedulers.background import BackgroundScheduler
+from backend.routers import metrics, chat
 
 FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "..", "frontend")
 
@@ -34,6 +35,7 @@ app.add_middleware(
 )
 
 app.include_router(metrics.router)
+app.include_router(chat.router)
 
 # Tell FastAPI to serve your CSS and JS files when requested
 app.mount("/js", StaticFiles(directory=os.path.join(FRONTEND_DIR, "js")), name="js")
