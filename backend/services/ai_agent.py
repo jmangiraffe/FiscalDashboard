@@ -1,10 +1,11 @@
 import os
 import json
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from backend.services.db_service import get_latest_snapshot
 
-# Configure the Gemini API (Ensure GEMINI_API_KEY is in your .env or Render dashboard)
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+# Initialize the new SDK client (it automatically picks up GEMINI_API_KEY from the environment)
+client = genai.Client()
 
 def query_fiscal_ai(user_prompt: str) -> str:
     """Combines live database context with the user's prompt and queries the LLM."""
@@ -24,13 +25,16 @@ def query_fiscal_ai(user_prompt: str) -> str:
     """
     
     try:
-        # We use Gemini 1.5 Flash as it is lightning fast for chatbot responses
-        model = genai.GenerativeModel(
-            model_name="gemini-1.5-flash",
-            system_instruction=system_instruction
+        # Use the new generate_content syntax with the GenerateContentConfig object
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=user_prompt,
+            config=types.GenerateContentConfig(
+                system_instruction=system_instruction,
+                temperature=0.2 # Lower temperature for factual, analytical responses
+            )
         )
         
-        response = model.generate_content(user_prompt)
         return response.text
         
     except Exception as e:
